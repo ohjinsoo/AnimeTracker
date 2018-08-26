@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      body {
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        width: 210px;
+      }
+      input {
+        width: calc(100% - 20px);
+        margin: 5px;
+      }
+      button {
+        width: calc(100% - 20px);
+        margin: 5px;
+      }
+      select {
+        width: calc(100% - 20px);
+        margin: 5px;
+      }
+      span {
+        text-align: center;
+        display: block;
+      }
+      b {
+        text-align: center;
+        display: block;
+      }
+      a {
+        text-align: center;
+        display: block;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <b>~ Anime Tracker ~</b>
+    <span>Choose a site to Login to:</span>
+    <select id="list">
+      <option selected value="AniList">AniList</option>
+      <option value="MyAnimeList">MyAnimeList (currently down)</option>
+    </select>
+
+    <a id="access_link" target = "_blank" href='https://anilist.co/api/v2/oauth/authorize?client_id=928&response_type=token'>Click to Get Your Access Code</a>
+
+    <span id="user_direction">Paste your Access Code</span>
+    <input type="text" id="user_text">
+
+    <button id="login"></button>
+
+    <p>
+      <span id="status"></span>
+    </p>
+
+    <script src="../utils/Requests.js"></script>
+    <script src="../utils/Api.js"></script>
+    <script src="../src/logInOrOut.js"></script>
+    <script src="popup.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "Anime Tracker",
+  "version": "1.0",
+  "description": "Track your anime lists on AniList!",
+  "permissions": [
+    "*://*.myanimelist.net/*",
+    "*://*.graphql.anilist.co/*",
+    "*://*.crunchyroll.com/*",
+    "*://*.kissanime.ru/*",
+    "tabs",
+    "storage"
+  ],
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "AnimeTracker",
+    "default_popup": "popup/popup.html"
+  },
+   "content_scripts": [
+   {
+     "matches": ["http://*.crunchyroll.com/*", "http://*.kissanime.ru/*"],
+     "js": ["src/TrackAnime/content_script.js"],
+     "run_at" : "document_idle"
+   }
+ ],
+ "background": {
+    "scripts": ["utils/Requests.js", "utils/Api.js", "src/TrackAnime/KissAnimeHelper.js", "src/TrackAnime/TrackAnime.js"],
+    "persistent": false
+  },
+  "manifest_version": 2
+}
